@@ -1,21 +1,11 @@
-To implement GraphQL in your .NET Core project using TypeScript, follow these organized steps:
-1. **Set Up Wire :**
-   - Create a new module for your API server.
-2. **Define API Endpoints with OpenAPI:**
-   - Update your `SetupTypeScript` to include necessary TypeScript configurations.
-   - Create an OpenAPI specification file, e.g., `doc/OPENAPI.yaml`, detailing your API's endpoints and schemas.
-3. **Implement Wire Configuration:**
-   - Set up Wire configuration to allow dynamic query operations.
-4. **Generate OpenAPI Documentation:**
-   - Use tools like Swagger UI or OpenAPI generator to create YAML files that describe your API's endpoints and schemas.
-5. **Build and Test Your Application:**
-   - Use `dotnet build` with the necessary configurations.
-   - Test using tools like Postman to send GraphQL queries and verify responses against your documentation.
-6. **Error Handling and Validation:**
-   - Ensure proper validation of incoming requests.
-   - Implement custom query operations as needed, validating inputs to return appropriate status codes.
-7. **Review and Debug:**
-   - Check for type errors in Wire configurations.
-   - Ensure that GraphQL schemas are correctly defined.
-   - Use testing frameworks or tools like Postman to verify functionality.
-By following these steps, you'll set up a functional GraphQL API using TypeScript within your .NET Core project, complete with proper documentation and error handling.
+The error you're encountering is related to a missing NuGet package for `Microsoft.EntityFrameworkCore` under version "4.*". This indicates that your `.NET Core` application's configuration  might be referencing an outdated or incompatible NuGet package.
+Here's how you can resolve this issue:
+1. **Update the .NET Core Configuration:**
+   Ensure your appsettings.json includes all necessary NuGet packages with appropriate version constraints.
+2. **Update SQL Server Version:**
+   Ensure that the SQL Server version specified in appsettings.json is compatible with your .NET Core SDK.
+   - For `.NET Core 3.0+` and `.NET Core 7.0`, SQL Server must be at least version 16.0.
+   - Update appsettings.json accordingly:
+3. **Rebuild the Solution:**
+   After making these changes, rebuild your project to ensure all NuGet packages are correctly scoped and available.
+By following these steps, you should resolve the NuGet package error and successfully build your .NET Core application with .NET 7.0.
